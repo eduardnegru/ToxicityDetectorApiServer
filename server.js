@@ -4,7 +4,7 @@ const app = express();
 const childProcess = require("child_process");
 
 function pull(res){
-	childProcess.exec('sudo git pull origin master', function(error, stdout, stderr){
+	childProcess.exec('git pull', function(error, stdout, stderr){
 		console.log(stdout);
 		if (error)
 		{
