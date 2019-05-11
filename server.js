@@ -19,6 +19,7 @@ function pull(res){
 
 app.get('/', (req, res) => res.send("It works!"));
 
+
 app.post('/webhooks/pull', (req, res) => {
 
 	let sender = req.body.sender;
