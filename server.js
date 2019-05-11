@@ -17,7 +17,7 @@ function pull(res){
 	});
 }
 
-app.get('/', (req, res) => res.send("It works!!"));
+app.get('/', (req, res) => res.send("It works!"));
 
 app.post('/webhooks/pull', (req, res) => {
 		pull(res);
