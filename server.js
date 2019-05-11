@@ -19,7 +19,7 @@ function pull(res){
 
 app.get('/', (req, res) => res.send("It works!"));
 
-app.get('/webhooks/pull', (req, res) => {
+app.post('/webhooks/pull', (req, res) => {
 
 	let sender = req.body.sender;
 	let branch = req.body.ref;
