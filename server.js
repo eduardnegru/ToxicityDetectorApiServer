@@ -5,7 +5,7 @@ const childProcess = require("child_process");
 
 function pull(res){
 	childProcess.exec('ls', function(error, stdout, stderr){
-		cout(stdout);
+		console.log(stdout);
 		if (error)
 		{
 			console.error(error);
