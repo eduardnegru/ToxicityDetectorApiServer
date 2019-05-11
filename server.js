@@ -4,7 +4,7 @@ const app = express();
 const childProcess = require("child_process");
 
 function pull(res){
-	childProcess.exec('./pull.sh', function(error, stdout, stderr){
+	childProcess.exec('git pull origin master', function(error, stdout, stderr){
 		if (error)
 		{
 			console.error(error);
