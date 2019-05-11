@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo git pull orign master
+sudo git pull origin master
