@@ -1,0 +1,26 @@
+{
+  "name": "toxicitydetector",
+  "version": "1.0.0",
+  "description": "Detect message toxicity via keras model loaded in tensorflow.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardnegru/ToxicityDetectorApiServer.git"
+  },
+  "author": "Negru Adrian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eduardnegru/ToxicityDetectorApiServer/issues"
+  },
+  "homepage": "https://github.com/eduardnegru/ToxicityDetectorApiServer#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "express": "^4.16.4",
+    "nodemon": "^1.19.0",
+    "nom": "0.0.3"
+  }
+}
