@@ -4,7 +4,7 @@ const app = express();
 const childProcess = require("child_process");
 
 function pull(res){
-	childProcess.exec('cd /home/ToxicityDetectorApiServer && ./pull.sh', function(error, stdout, stderr){
+	childProcess.exec('cd /home/adrianeduardnegru/ToxicityDetectorApiServer && ./pull.sh', function(error, stdout, stderr){
 		if (error)
 		{
 			console.error(error);
