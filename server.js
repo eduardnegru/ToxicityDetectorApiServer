@@ -16,6 +16,7 @@ function lstm_model_text_to_vector(text)
 
 	let arrWords = text.split(" ");
 	let arrEmbeddings = w2v.getVectors(arrWords);
+	console.log(arrEmbeddings);
 	let arrVectors = [];
 
 	for(let objWord of arrEmbeddings)
