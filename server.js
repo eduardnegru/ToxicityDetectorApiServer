@@ -41,7 +41,8 @@ function lstm_model_text_to_vector(text)
 
 async function run_prediction(req, res)
 {
-	console.log(req);
+	console.log(req.body);
+
 	try
 	{
 		let strText = req.body.text;
