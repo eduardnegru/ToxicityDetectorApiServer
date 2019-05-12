@@ -32,7 +32,6 @@ function lstm_model_text_to_vector(text)
 				//it does not exist in the dictionary
 				arrVectors.push(new Array(embeddingsLength).fill(0));
 			}
-
 		}
 	}
 
@@ -45,7 +44,7 @@ function lstm_model_text_to_vector(text)
 			arrVectors.push(new Array(embeddingsLength).fill(0))
 		}
 	}
-
+	console.log(arrVectors);
 	return arrVectors;
 }
 
