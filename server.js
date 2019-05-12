@@ -71,7 +71,7 @@ async function run_prediction(req, res)
 
 (async () => {
 
-	w2v.load('./embeddings/wiki/wiki.vec', "utf-8")
+	w2v.load('./embeddings/wiki/wiki.vec')
 	model = await tf.loadLayersModel('file://models/lstm/bidirectional_wiki_adam/model.json');
 
 	app.use(bodyParser.json());
