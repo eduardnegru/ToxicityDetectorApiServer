@@ -16,7 +16,7 @@ function lstm_model_text_to_vector(text)
 
 	let arrWords = text.split(" ");
 	let arrEmbeddings = w2v.getVectors(arrWords);
-	console.log(arrEmbeddings);
+	// console.log(arrEmbeddings);
 	let arrVectors = [];
 
 	for(let objWord of arrEmbeddings)
@@ -44,6 +44,7 @@ async function run_prediction(req, res)
 {
 	try
 	{
+		console.log(req.body);
 		let strText = JSON.parse(Object.keys(req.body)[0])["text"];
 		let arrVectors = lstm_model_text_to_vector(strText);
 		let arrPrediction = await model.predict(tf.tensor([arrVectors])).array();
