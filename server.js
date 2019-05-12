@@ -45,7 +45,7 @@ async function run_prediction(req, res)
 
 	try
 	{
-		let strText = JSON.parse(Object.keys(req.body)[0]["text"]);
+		let strText = JSON.parse(Object.keys(req.body)[0]);
 		console.log(strText);
 		let arrVectors = lstm_model_text_to_vector(strText);
 		let arrPrediction = await model.predict(tf.tensor([arrVectors])).array();
