@@ -41,8 +41,7 @@ function lstm_model_text_to_vector(text)
 
 async function run_prediction(req, res)
 {
-	res.header("Access-Control-Allow-Origin", "*");
-
+	console.log(req);
 	try
 	{
 		let strText = req.body.text;
