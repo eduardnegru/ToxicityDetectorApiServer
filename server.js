@@ -10,7 +10,6 @@ let model;
 
 function lstm_model_text_to_vector(text)
 {
-	console.log("mmodel", text);
 	/**input shape*/
 	const maxAllowedWords = 30;
 	const embeddingsLength = 300;
@@ -46,10 +45,7 @@ async function run_prediction(req, res)
 
 	try
 	{
-		console.log(Object.keys(req.body));
-		console.log(Object.keys(req.body)[0])
-
-		let strText = Object.keys(req.body)[0]["text"];
+		let strText = JSON.parse(Object.keys(req.body)[0]["text"]);
 		console.log(strText);
 		let arrVectors = lstm_model_text_to_vector(strText);
 		let arrPrediction = await model.predict(tf.tensor([arrVectors])).array();
