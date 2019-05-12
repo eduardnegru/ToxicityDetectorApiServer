@@ -2,7 +2,7 @@ const express = require("express");
 const chalk = require("chalk");
 const app = express();
 const fs = require("fs");
-var w2v = require('word2vector');
+let w2v = require('word2vector');
 const tf = require('@tensorflow/tfjs');
 const bodyParser = require('body-parser');
 require('@tensorflow/tfjs-node');

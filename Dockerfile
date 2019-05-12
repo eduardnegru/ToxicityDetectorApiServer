@@ -1,16 +1,16 @@
 FROM node:10.15.3
 
 # Create app directory
-RUN mkdir -p /app
+RUN mkdir -p /usr/app
 
-WORKDIR /app
+WORKDIR /usr/app
 
 # Install app dependencies
-COPY package.json /app
+COPY package.json /usr/app
 RUN npm install
 
 # Bundle app source
-COPY . /app
+COPY . /usr/app
 
 EXPOSE 8000
 CMD [ "npm", "start" ]

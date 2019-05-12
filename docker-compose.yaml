@@ -3,9 +3,9 @@ version: '2'
 services:
   api-service:
     build: .
+    command: npm start
     volumes:
-      - .:/app
-      - /app/node_modules
+      - .:/usr/app
+      - /usr/app/node_modules
     ports:
       - 8000:3000
-    command: npm start
