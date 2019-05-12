@@ -41,12 +41,9 @@ function lstm_model_text_to_vector(text)
 
 async function run_prediction(req, res)
 {
-	console.log(req.body);
-
 	try
 	{
 		let strText = JSON.parse(Object.keys(req.body)[0])["text"];
-		console.log(strText);
 		let arrVectors = lstm_model_text_to_vector(strText);
 		let arrPrediction = await model.predict(tf.tensor([arrVectors])).array();
 		let prediction = arrPrediction[0][0].toFixed(2);
