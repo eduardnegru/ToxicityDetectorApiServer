@@ -72,6 +72,10 @@ async function run_prediction(req, res)
 		extended: true
 	}));
 
+	app.use(function(req, res, next) {
+		res.header("Access-Control-Allow-Origin", "*");
+		res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	});
 
 	app.get('/', (req, res) => res.send("It works!"));
 	app.post('/predict', run_prediction);
