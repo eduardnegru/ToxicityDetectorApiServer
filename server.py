@@ -29,10 +29,11 @@ def read_embeddings():
 	for line in tqdm(f):
 		values = line.split(" ")
 		word = values[0]
-		coefs = np.asarray(values[1:-1])
+		print(values)
+		coefs = np.asarray(values[1:])
 		# embeddings_index[word] = coefs
 		embeddings_index[word] = coefs.astype("float32")
-		if i == 100:
+		if i == 1:
 			break
 		i = i + 1
 	f.close()
