@@ -37,9 +37,9 @@ def read_embeddings():
 		# embeddings_index[word] = coefs
 		embeddings_index[word] = coefs.astype("float32")
 		# print(embeddings_index[word])
-		# if i == 1:
-		# 	break
-		# i = i + 1
+		if i == 1000:
+			break
+		i = i + 1
 	f.close()
 
 
@@ -54,7 +54,8 @@ def run_prediction():
 	message = str(literal_eval(list(request.form.to_dict(flat=True).keys())[0])["text"])
 	# print(message)
 	v = text_to_array(message)
-	# print(v.shape)
+	print(v)
+	print(v.shape)
 
 	with graph.as_default():
 		prediction = model.predict(np.array([text_to_array(message)])).flatten()[0]
