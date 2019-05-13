@@ -59,7 +59,7 @@ def run_prediction():
 		with graph.as_default():
 			prediction = model.predict(np.array([text_to_array(message)])).flatten()[0]
 
-		resp = jsonify({"prediction": round(float(prediction), 2)})
+		resp = jsonify({"prediction": format(float(prediction), '.3f')})
 		resp.status_code = 200
 	except:
 		resp = jsonify({"error": "Something went wrong"})
