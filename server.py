@@ -36,10 +36,10 @@ def read_embeddings():
 		coefs = np.asarray(values[1:300])
 		# embeddings_index[word] = coefs
 		embeddings_index[word] = coefs.astype("float32")
-		print(embeddings_index[word])
-		if i == 1:
-			break
-		i = i + 1
+		# print(embeddings_index[word])
+		# if i == 1:
+		# 	break
+		# i = i + 1
 	f.close()
 
 
