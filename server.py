@@ -52,9 +52,6 @@ def hello():
 
 @app.route('/predict', methods = ['POST'])
 def run_prediction():
-	resp.headers['Access-Control-Allow-Origin'] = '*'
-	resp.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept'
-
 	try:
 		message = str(literal_eval(list(request.form.to_dict(flat=True).keys())[0])["text"])
 		v = text_to_array(message)
@@ -67,6 +64,9 @@ def run_prediction():
 	except:
 		resp = jsonify({"error": "Something went wrong"})
 		resp.status_code = 500
+
+	resp.headers['Access-Control-Allow-Origin'] = '*'
+	resp.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept'
 
 	return resp
 
