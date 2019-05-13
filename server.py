@@ -47,7 +47,7 @@ def hello():
 @app.route('/predict', methods = ['POST'])
 def run_prediction():
 	message = literal_eval(list(request.form.to_dict(flat=True).keys())[0])["text"]
-
+	print(message)
 	with graph.as_default():
 		prediction = model.predict(np.array([text_to_array(message)])).flatten()[0]
 
