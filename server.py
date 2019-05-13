@@ -56,7 +56,7 @@ def run_prediction():
 
 
 	# print(prediction)
-	# resp = jsonify({"prediction": round(float(prediction), 2)})
+	resp = jsonify({"prediction": round(float(0.2), 2)})
 	print(embeddings_index.get("now"))
 	resp.status_code = 200
 
