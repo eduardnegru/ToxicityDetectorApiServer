@@ -52,23 +52,21 @@ def hello():
 
 @app.route('/predict', methods = ['POST'])
 def run_prediction():
-	message = str(literal_eval(list(request.form.to_dict(flat=True).keys())[0])["text"])
-	# print(message)
-	v = text_to_array(message)
-	# print(v)
-	# print(v.shape)
-
-	with graph.as_default():
-		prediction = model.predict(np.array([text_to_array(message)])).flatten()[0]
-
-
-	# print(prediction)
-	resp = jsonify({"prediction": round(float(prediction), 2)})
-	# print(embeddings_index.get(message))
-	resp.status_code = 200
-
 	resp.headers['Access-Control-Allow-Origin'] = '*'
 	resp.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept'
+
+	try:
+		message = str(literal_eval(list(request.form.to_dict(flat=True).keys())[0])["text"])
+		v = text_to_array(message)
+
+		with graph.as_default():
+			prediction = model.predict(np.array([text_to_array(message)])).flatten()[0]
+
+		resp = jsonify({"prediction": round(float(prediction), 2)})
+		resp.status_code = 200
+	except:
+		resp = jsonify({"error": "Something went wrong"})
+		resp.status_code = 500
 
 	return resp
 
