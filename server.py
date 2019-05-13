@@ -27,12 +27,16 @@ def read_embeddings():
 	f = open('./embeddings/wiki/wiki.vec')
 	i = 0
 	for line in tqdm(f):
+
+		if(line[-1] == '\n'):
+			line = line[:-1]
+
 		values = line.split(" ")
 		word = values[0]
-		print(values)
-		coefs = np.asarray(values[1:])
+		coefs = np.asarray(values[1:300])
 		# embeddings_index[word] = coefs
 		embeddings_index[word] = coefs.astype("float32")
+		print(embeddings_index[word])
 		if i == 1:
 			break
 		i = i + 1
