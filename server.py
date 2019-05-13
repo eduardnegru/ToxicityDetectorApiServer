@@ -42,7 +42,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-	return 'This Compose/Flask demo has been viewed time(s).'
+	return 'It works!'
 
 @app.route('/predict', methods = ['POST'])
 def run_prediction():
@@ -63,4 +63,4 @@ def run_prediction():
 
 if __name__ == "__main__":
 	read_embeddings()
-	app.run(host="0.0.0.0", debug=True)
+	app.run(host="0.0.0.0", debug=True, port=8000)
