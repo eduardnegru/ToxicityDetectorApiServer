@@ -34,7 +34,7 @@ def read_embeddings():
 		values = line.split(" ")
 		word = values[0]
 		coefs = np.asarray(values[1:301])
-		print(len(coefs))
+		# print(len(coefs))
 		# embeddings_index[word] = coefs
 		embeddings_index[word] = coefs.astype("float32")
 		# print(embeddings_index[word])
@@ -62,9 +62,9 @@ def run_prediction():
 		prediction = model.predict(np.array([text_to_array(message)])).flatten()[0]
 
 
-	print(prediction)
-	resp = jsonify({"prediction": round(float(0.2), 2)})
-	print(embeddings_index.get("now"))
+	# print(prediction)
+	resp = jsonify({"prediction": round(float(prediction), 2)})
+	# print(embeddings_index.get(message))
 	resp.status_code = 200
 
 	resp.headers['Access-Control-Allow-Origin'] = '*'
