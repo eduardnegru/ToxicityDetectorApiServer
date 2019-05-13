@@ -32,6 +32,9 @@ def read_embeddings():
 		coefs = np.asarray(values[1:-1])
 		# embeddings_index[word] = coefs
 		embeddings_index[word] = coefs.astype("float32")
+		if i < 1000:
+			break
+		i+=1
 	f.close()
 
 
