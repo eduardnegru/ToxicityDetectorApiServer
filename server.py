@@ -51,16 +51,16 @@ def hello():
 
 @app.route('/predict', methods = ['POST'])
 def run_prediction():
-	# message = str(literal_eval(list(request.form.to_dict(flat=True).keys())[0])["text"])
+	message = str(literal_eval(list(request.form.to_dict(flat=True).keys())[0])["text"])
 	# print(message)
-	# v = text_to_array(message)
+	v = text_to_array(message)
 	# print(v.shape)
 
-	# with graph.as_default():
-	# 	prediction = model.predict(np.array([text_to_array(message)])).flatten()[0]
+	with graph.as_default():
+		prediction = model.predict(np.array([text_to_array(message)])).flatten()[0]
 
 
-	# print(prediction)
+	print(prediction)
 	resp = jsonify({"prediction": round(float(0.2), 2)})
 	print(embeddings_index.get("now"))
 	resp.status_code = 200
