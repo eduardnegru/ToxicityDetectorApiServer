@@ -34,7 +34,7 @@ def read_embeddings():
 		values = line.split(" ")
 		word = values[0]
 		coefs = np.asarray(values[1:301])
-		print(coefs)
+		print(len(coefs))
 		# embeddings_index[word] = coefs
 		embeddings_index[word] = coefs.astype("float32")
 		# print(embeddings_index[word])
