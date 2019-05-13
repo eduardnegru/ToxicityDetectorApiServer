@@ -8,7 +8,7 @@ from keras.models import load_model
 from tqdm import tqdm
 import tensorflow as tf
 from flask import jsonify
-global graph,model
+global graph
 graph = tf.get_default_graph()
 
 embeddings_index = {}
@@ -32,9 +32,9 @@ def read_embeddings():
 		coefs = np.asarray(values[1:-1])
 		# embeddings_index[word] = coefs
 		embeddings_index[word] = coefs.astype("float32")
-		if i < 1000:
+		if i == 100:
 			break
-		i+=1
+		i = i + 1
 	f.close()
 
 
@@ -50,6 +50,7 @@ def run_prediction():
 
 	with graph.as_default():
 		prediction = model.predict(np.array([text_to_array(message)])).flatten()[0]
+
 
 	print(prediction)
 	resp = jsonify({"prediction": round(float(prediction), 2)})
