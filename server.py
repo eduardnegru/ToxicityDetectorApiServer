@@ -38,7 +38,7 @@ def read_embeddings():
 		# embeddings_index[word] = coefs
 		embeddings_index[word] = coefs.astype("float32")
 		# print(embeddings_index[word])
-		if i == 10:
+		if i == 100:
 			break
 		i = i + 1
 	f.close()
